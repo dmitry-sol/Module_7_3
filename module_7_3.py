@@ -30,16 +30,12 @@ class WordsFinder:
 
     def find_(self, word):
         word = word.lower()
-        keys = [k for k, v in self.get_all_words().items() if word in v]
-        v_index = [v.index(word) + 1 for k, v in self.get_all_words().items() if word in v]
-        find_dict = dict(zip(keys, v_index))
+        find_dict = {k: v.index(word) + 1 for k, v in self.get_all_words().items() if word in v}
         return find_dict
 
     def count(self, word):
         word = word.lower()
-        keys = [k for k, v in self.get_all_words().items() if word in v]
-        v_count = [v.count(word) for k, v in self.get_all_words().items() if word in v]
-        count_dict = dict(zip(keys, v_count))
+        count_dict = {k: v.count(word) for k, v in self.get_all_words().items() if word in v}
         return count_dict
 
 
